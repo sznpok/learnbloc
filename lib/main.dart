@@ -1,4 +1,9 @@
 import 'package:basiclearnbloc/bloc/counter_bloc.dart';
+import 'package:basiclearnbloc/bloc_learning/firstTask/bloc/first_task_bloc.dart';
+import 'package:basiclearnbloc/bloc_learning/firstTask/screens/first_task.dart';
+import 'package:basiclearnbloc/bloc_learning/firstTask/screens/second_task.dart';
+import 'package:basiclearnbloc/bloc_learning/firstTask/screens/third_task.dart';
+import 'package:basiclearnbloc/widgets/task_list_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,8 +19,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CounterBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CounterBloc()),
+        BlocProvider(create: (context) => FirstTaskBloc()),
+      ],
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -74,6 +82,10 @@ class MyHomePage extends StatelessWidget {
                     context,
                   ).textTheme.headlineMedium!.copyWith(color: Colors.blue),
                 ),
+                TaskListWidget(title: 'First Task', func: () => FirstTask()),
+
+                TaskListWidget(title: 'SecondTask', func: () => SecondTask()),
+                TaskListWidget(title: 'ThirdTask', func: () => ThirdTask()),
               ],
             ),
           );
