@@ -1,5 +1,10 @@
-class TextSyncState {
+import 'package:equatable/equatable.dart';
+
+class TextSyncState extends Equatable {
   final String text;
 
-  TextSyncState({required this.text});
+  const TextSyncState({required this.text});
+
+  @override
+  List<Object> get props => [text];
 }

@@ -1,8 +1,14 @@
-import 'package:flutter/widgets.dart';
+part of 'color_bloc.dart';
 
-abstract class ColorState {}
+class ColorState extends Equatable {
+  const ColorState();
+  @override
+  List<Object> get props => [];
+}
 
 class ColorInitial extends ColorState {
-  final Color color;
-  ColorInitial(this.color);
+  final Color initialColor;
+  const ColorInitial(this.initialColor);
+  @override
+  List<Object> get props => [initialColor];
 }

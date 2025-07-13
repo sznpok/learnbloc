@@ -1,9 +1,15 @@
-// color_event.dart
-import 'package:flutter/material.dart';
+part of 'color_bloc.dart';
 
-abstract class ColorEvent {}
+sealed class ColorEvent extends Equatable {
+  const ColorEvent();
 
-class ChangeColorEvent extends ColorEvent {
-  final Color color;
-  ChangeColorEvent(this.color);
+  @override
+  List<Object> get props => [];
+}
+
+class ColorChangedEvent extends ColorEvent {
+  final Color changedColor;
+  const ColorChangedEvent(this.changedColor);
+  @override
+  List<Object> get props => [changedColor];
 }
