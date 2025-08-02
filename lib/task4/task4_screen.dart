@@ -1,4 +1,5 @@
 import 'package:basiclearnbloc/task4/bloc/uppercase_lowercase_bloc.dart';
+import 'package:basiclearnbloc/toggletheme/bloc/toggletheme_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -43,6 +44,19 @@ class Task4Screen extends StatelessWidget {
                       );
                     },
                     child: Text('Lowercase'),
+                  ),
+
+                  SizedBox(height: 30),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => TogglethemePage(),
+                        ),
+                      );
+                    },
+                    child: Text('Next Page'),
                   ),
                 ],
               ),

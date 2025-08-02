@@ -12,3 +12,15 @@ class TextChangedEvent extends TextSyncEvent {
   @override
   List<Object> get props => [newText];
 }
+
+class UppercaseEvent extends TextSyncEvent {
+  const UppercaseEvent();
+  @override
+  List<Object> get props => [];
+}
+
+class LowercaseEvent extends TextSyncEvent {
+  const LowercaseEvent();
+  @override
+  List<Object> get props => [];
+}

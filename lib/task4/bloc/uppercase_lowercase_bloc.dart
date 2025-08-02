@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-
 part 'uppercase_lowercase_event.dart';
 part 'uppercase_lowercase_state.dart';
 

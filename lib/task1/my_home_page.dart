@@ -2,7 +2,6 @@ import 'package:basiclearnbloc/task1/bloc/text_sync_bloc.dart';
 import 'package:basiclearnbloc/task1/bloc/text_sync_event.dart';
 import 'package:basiclearnbloc/task1/bloc/text_sync_state.dart';
 import 'package:basiclearnbloc/task2/task2_screen.dart';
-import 'package:basiclearnbloc/task4/bloc/uppercase_lowercase_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,6 +36,26 @@ class MyHomePage extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 20),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        ctx.read<TextSyncBloc>().add(UppercaseEvent());
+                      },
+                      child: Text('Uppercase'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        ctx.read<TextSyncBloc>().add(LowercaseEvent());
+                      },
+                      child: Text('Lowercase'),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(

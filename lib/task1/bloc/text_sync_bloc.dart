@@ -7,5 +7,15 @@ class TextSyncBloc extends Bloc<TextSyncEvent, TextSyncState> {
     on<TextChangedEvent>((event, emit) {
       emit(TextSyncState(text: event.newText));
     });
+
+    on<UppercaseEvent>((event, emit) {
+      final uppercaseText = state.text.toUpperCase();
+      emit(TextSyncState(text: uppercaseText));
+    });
+
+    on<LowercaseEvent>((event, emit) {
+      final lowercaseText = state.text.toLowerCase();
+      emit(TextSyncState(text: lowercaseText));
+    });
   }
 }
