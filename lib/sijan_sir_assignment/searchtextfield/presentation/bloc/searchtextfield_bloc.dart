@@ -34,10 +34,20 @@ class SearchtextfieldBloc
     Emitter<SearchtextfieldState> emit,
   ) {
     try {
+      final filteredList = searchfieldValues
+          .where(
+            (item) => item.value.toLowerCase().contains(
+              event.searchText.toLowerCase(),
+            ),
+          )
+          .toList();
       emit(
         state.copyWith(
-          searchFieldValues: searchfieldValues,
+          searchFieldValues: filteredList,
           singleValue: event.searchText,
+          icon: event.searchText.isNotEmpty
+              ? const Icon(Icons.close)
+              : const Icon(Icons.search),
         ),
       );
       emit(state.copyWith(status: FetchDropdownStatus.loaded));

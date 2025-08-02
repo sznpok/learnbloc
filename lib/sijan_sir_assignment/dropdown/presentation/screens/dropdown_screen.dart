@@ -1,5 +1,6 @@
 import 'package:basiclearnbloc/sijan_sir_assignment/dropdown/models/dropdown_model.dart';
 import 'package:basiclearnbloc/sijan_sir_assignment/dropdown/presentation/bloc/dropdown_value_display_next_widget_bloc.dart';
+import 'package:basiclearnbloc/sijan_sir_assignment/searchtextfield/presentation/screen/searchtext_field_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,6 +69,17 @@ class _DropdownScreenState extends State<DropdownScreen> {
                     Text(
                       'Selected Item:${selectedItem.value}',
                       style: TextStyle(fontSize: 16),
+                    ),
+
+                    SizedBox(height: 30),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => SearchtextField()),
+                        );
+                      },
+                      child: Text('Next Page'),
                     ),
                   ],
                 ),
